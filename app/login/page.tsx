@@ -10,15 +10,19 @@ export default function LoginPage() {
     try {
       await loginAnonymously();
       router.push("/dashboard");
-    } catch (error) {
-      alert("Login failed!");
+    } catch {
+      alert("Login failed! Please try again.");
+      console.error("Anonymous login failed.");
     }
   };
 
   return (
     <div className="flex flex-col items-center justify-center h-screen bg-white">
-      <h2 className="text-2xl font-bold mb-4">Anonymous Login</h2>
-      <button onClick={handleLogin} className="px-6 py-2 bg-green-600 text-white rounded-xl shadow hover:bg-green-700">
+      <h2 className="text-2xl font-bold mb-6 text-blue-500">Welcome to EduBridge</h2>
+      <button
+        onClick={handleLogin}
+        className="px-6 py-2 bg-green-600 text-white rounded-xl shadow hover:bg-green-700 transition"
+      >
         Continue as Guest
       </button>
     </div>
